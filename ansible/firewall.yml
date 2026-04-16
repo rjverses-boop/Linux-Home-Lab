@@ -1,0 +1,9 @@
+- name: Allow HTTP through firewall
+  hosts: servers
+  become: true
+  tasks:
+    - name: Allow port 80
+      ufw:
+        rule: allow
+        port: 80
+        proto: tcp
