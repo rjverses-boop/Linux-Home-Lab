@@ -1,0 +1,15 @@
+- name: Create users and groups
+  hosts: all
+  become: true
+  tasks:
+    - name: Create admins group
+      group:
+        name: admins
+        state: present
+
+    - name: Create user alice
+      user:
+        name: alice
+        groups: admins
+        shell: /bin/bash
+        create_home: yes
